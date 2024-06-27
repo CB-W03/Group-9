@@ -11,13 +11,16 @@ public class Customer {
 
     private String name;
 
+    private boolean accountBlocked;
+
     public Customer() {
 
     }
 
-    public Customer(int custid, String name) {
+    public Customer(int custid, String name,boolean accountBlocked) {
         this.custid = custid;
         this.name = name;
+        this.accountBlocked=accountBlocked;
     }
 
     public int getCustId() {
@@ -26,6 +29,14 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    public boolean getBlockedStatus() {
+        return accountBlocked;
+    }
+
+    public void setBlockedStatus(boolean accountBlocked){
+        this.accountBlocked=accountBlocked;
     }
 
     public void setCustId(int custid) {
