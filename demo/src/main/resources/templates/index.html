@@ -6,17 +6,21 @@
     <script src="../static/script.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
 </head>
-<h1 class="title">Welcome To Your Account</h1>
+<h1 class="title has-text-centered">Welcome To Your Account</h1>
 
 <div class="box">
     <h5 class="title is-5">Account Name:</h5>
-    <h5 class="title is-5">Account Number:</h5>
     <h5 class="title is-5">Balance:</h5>
 </div>
 <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
     <ul>
         <a>
-            <button class="js-modal-trigger button" type="submit" data-target="modal-js-example"> Transactions </button>
+            <button class="js-modal-trigger button" type="submit" data-target="modal-js-details"> Account Details
+            </button>
+        </a>
+        <a>
+            <button class="js-modal-trigger button" type="submit" data-target="modal-js-transactions"> Transactions
+            </button>
         </a>
         <a href="./manageCards.html">
             <button class="button"> Manage Cards </button>
@@ -31,7 +35,7 @@
 
 
 <body>
-    <div id="modal-js-example" class="modal">
+    <div id="modal-js-transactions" class="modal">
         <div class="modal-background"></div>
 
         <div class="modal-content">
@@ -41,15 +45,35 @@
                         <tr>
                             <th><abbr title="Reciever">Reciever</abbr></th>
                             <th><abbr title="Amount">Amount</abbr></th>
+                            <th><abbr title="Date"> Date</abbr></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>Sean</th>
                             <td>£100</td>
+                            <td> 01/01/01</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div id="modal-js-details" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <h5 class="title is-5 has-text-centered">Account Details:</h5>
+                <ul>
+                    <li>Account Name:</li>
+                    <li>Account Number:</li>
+                    <li>Sort Code:</li>
+                    <li>IBAN:</li>
+                </ul>
+                
             </div>
         </div>
 
