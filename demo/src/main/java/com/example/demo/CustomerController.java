@@ -9,35 +9,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/API")
 public class CustomerController {
     
     @Autowired
     CustomerRepo repo;
 
-    @GetMapping("/customers/{id}")
-    public Customer getDefaultCustomer(@PathVariable int id) {
-        Optional<Customer> maybeCust = repo.findById(id);
-        if (maybeCust.isPresent()) {
-            return maybeCust.get();
-        }
-        return new Customer(-1, "Customer not found", true);
+    @GetMapping("/{id}")
+    public Customer getCustomerByID(@PathVariable int id){
+        return repo.findById(id);
     }
 
-    @GetMapping("/customers")
-    public Customer getDefaultCustomer() {
-        return new Customer(-1, "Default", true);
+    @GetMapping("/CustomerList")
+    public List<Customer> getCustomerList(){
+        return repo.findAll();
     }
-
-    @GetMapping("/test")
-    public Customer[] example() {
-        Customer[] x = {new Customer(1,"John",false), new Customer(2, "Jane",false)};
-        return x;
-    }
-
-   @GetMapping("/blockedaccounts")
-    public List<Customer> blockedAccounts() {
-        return repo.findByAccountBlocked(false);
-    }
-
-
 }
