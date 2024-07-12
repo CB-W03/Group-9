@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="../static/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container is-max-desktop">
+        <form class="box">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="email" placeholder="e.g. alex@example.com" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" placeholder="********" />
+                </div>
+            </div>
+            <div class="columns is-centered" style="margin-top: 10px;">
+                <ul>
+                    <li>
+                        <button type="button" class="button is-info button1" onclick="navigateTo('./index.html')">Sign in</button>
+
+                        <button  type="button" class="button is-danger button2"
+                            onclick="navigateTo('https://online.citi.com/US/ag/helptopic')">Help</button>
+
+                    </li>
+
+                </ul>
+            </div>
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>
