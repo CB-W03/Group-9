@@ -40,3 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+/*
+Insert insert_data between all tags labelled with class class_name.
+*/
+function update(insert_data, class_name) {
+  var elements = document.getElementsByClassName(class_name);
+  for (i = 0; i < elements.length; i++) {
+    elements[i].innerHTML = insert_data;
+  }
+}
