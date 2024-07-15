@@ -56,7 +56,7 @@ Output the rows of a table of transactions at a location given by class_name.
 Input: an array of transactions, each with a recipient, date, and amount.
 */
 function output_transactions(class_name) {
-  fetch('https://api.jsonbin.io/v3/qs/6690f206e41b4d34e410bc15')
+  fetch('https://api.jsonbin.io/v3/qs/6694db6bacd3cb34a8665b7f')
   .then(response => response.json())
   .then(json => update(formatRows(json['record']), class_name));
 }
