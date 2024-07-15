@@ -50,3 +50,33 @@ function update(insert_data, class_name) {
     elements[i].innerHTML = insert_data;
   }
 }
+
+/*
+Output the rows of a table of transactions at a location given by class_name.
+Input: an array of transactions, each with a recipient, date, and amount.
+*/
+function output_transactions(class_name) {
+  fetch('https://api.jsonbin.io/v3/qs/6694db6bacd3cb34a8665b7f')
+  .then(response => response.json())
+  .then(json => update(formatRows(json['record']), class_name));
+}
+
+/*
+  Returns a string containing the rows of a table.
+  Input: an array of dictionaries with keys recipient, date, and amount.
+  Output: HTML rows of the table.
+*/
+function formatRows(json) {
+  var result = "";
+  for (i = 0; i < json.length; i++) {
+    result += `<tr>
+      <th>${json[i]['recipient']}</th>
+      <td>${json[i]['amount']}</td>
+      <td>${json[i]['date']}</td>
+    </tr>
+    `
+  }
+  return result;
+}
+
+output_transactions("transactiontable");
