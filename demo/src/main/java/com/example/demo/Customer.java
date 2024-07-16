@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -25,8 +27,12 @@ public class Customer {
 
     private double balance;
 
+    private List<Transaction> transactions;
+
+    private Card card;
+
     public Customer(int custID, String custName, boolean accountBlocked, String acctType, String sortCode,
-                    String acctNum, String iban, String bic, double balance) {
+                    String acctNum, String iban, String bic, double balance, List<Transaction> customerTransactions, Card card) {
         this.custID = custID;
         this.custName = custName;
         this.accountBlocked=accountBlocked;
@@ -36,23 +42,27 @@ public class Customer {
         this.iban=iban;
         this.bic=bic;
         this.balance=balance;
+        this.transactions = customerTransactions;
+        this.card = card;
     }
 
-    public String getAcctType() {return acctType;}
-    public String getSortCode() {return sortCode;}
-    public String getAcctNum() {return acctNum;}
-    public String getIban() {return iban;}
-    public String getBic() {return bic;}
+    public String getAcctType() {return this.acctType;}
+    public String getSortCode() {return this.sortCode;}
+    public String getAcctNum() {return this.acctNum;}
+    public String getIban() {return this.iban;}
+    public String getBic() {return this.bic;}
+    public List<Transaction> getTransactions(){ return this.transactions; }
+    public Card getCard(){ return this.card; }
     public int getCustID() {
-        return custID;
+        return this.custID;
     }
     public String getCustName() {
-        return custName;
+        return this.custName;
     }
     public boolean getBlockedStatus() {
-        return accountBlocked;
+        return this.accountBlocked;
     }
-    public double getBalance(){return balance;}
+    public double getBalance(){return this.balance;}
 
     public void setAcctType(String acctType) {this.acctType=acctType;}
     public void setSortCode(String sortCode) {this.sortCode=sortCode;}
