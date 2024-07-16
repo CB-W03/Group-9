@@ -61,6 +61,22 @@ function output_transactions(class_name) {
   .then(json => update(formatRows(json['record']), class_name));
 }
 
+/* Insert account information.
+*/
+function insert_account_info(cust_id) {
+  fetch('http://localhost:8084/'+String(cust_id))
+  .then(response => response.json())
+  .then(json => {
+    update(json['acct_type'], "acctname");
+    update(json['acct_num'], "acctno");
+    update(json['sort_code'],"sortcode");
+    update(json['iban'],"iban");
+    update(json['balance'], "acctbal");
+  })
+}
+
+
+
 /*
   Returns a string containing the rows of a table.
   Input: an array of dictionaries with keys recipient, date, and amount.
