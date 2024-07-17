@@ -1,43 +1,44 @@
 package com.example.demo;
 
-import java.util.Optional;
-
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/API")
 public class CustomerController {
     
     @Autowired
     CustomerRepo repo;
 
-    @GetMapping("/customers/{id}")
-    public Customer getDefaultCustomer(@PathVariable int id) {
-        Optional<Customer> maybeCust = repo.findById(id);
-        if (maybeCust.isPresent()) {
-            return maybeCust.get();
-        }
-        return new Customer(-1, "Customer not found", true);
+    @Autowired
+    TransactionRepo trRepo;
+
+    @Autowired
+    CardRepo caRepo;
+
+    @GetMapping("/{id}")
+    public Customer getCustomerByID(@PathVariable int id){
+        return repo.findById(id).get();     
     }
 
-    @GetMapping("/customers")
-    public Customer getDefaultCustomer() {
-        return new Customer(-1, "Default", true);
+    @GetMapping("/CustomerList")
+    public List<Customer> getCustomerList(){
+        return repo.findAll();
     }
 
-    @GetMapping("/test")
-    public Customer[] example() {
-        Customer[] x = {new Customer(1,"John",false), new Customer(2, "Jane",false)};
-        return x;
+    @GetMapping("/{id}/transactions")
+    public List<Transaction> getCustomerTransactions(@PathVariable int id){
+        return trRepo.findByCustomerID(id);
     }
 
-   @GetMapping("/blockedaccounts")
-    public List<Customer> blockedAccounts() {
-        return repo.findByAccountBlocked(false);
+    @GetMapping("/{id}/card")
+    public List<Card> getCustomerCard(@PathVariable int id){
+        return caRepo.findByCustid(id);
     }
-
 
 }
