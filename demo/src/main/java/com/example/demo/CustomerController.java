@@ -30,7 +30,7 @@ public class CustomerController {
     public List<Customer> getCustomerList(){
         return repo.findAll();
     }
-    //comment so i can commit and push
+
     @GetMapping("/{id}/transactions")
     public List<Transaction> getCustomerTransactions(@PathVariable int id){
         return trRepo.findByCustomerID(id);
