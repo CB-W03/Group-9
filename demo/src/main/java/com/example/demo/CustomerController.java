@@ -18,6 +18,9 @@ public class CustomerController {
     @Autowired
     TransactionRepo trRepo;
 
+    @Autowired
+    CardRepo caRepo;
+
     @GetMapping("/{id}")
     public Customer getCustomerByID(@PathVariable int id){
         return repo.findById(id).get();     
@@ -33,9 +36,9 @@ public class CustomerController {
         return trRepo.findByCustomerID(id);
     }
 
-    /*@GetMapping("/{id}/card")
-    public Card getCustomerCard(@PathVariable int id){
-        return repo.findById(id).get().getCard();
-    }*/
+    @GetMapping("/{id}/card")
+    public List<Card> getCustomerCard(@PathVariable int id){
+        return caRepo.findByCustid(id);
+    }
 
 }

@@ -15,14 +15,17 @@ public class CustomerConfig {
     @Autowired
     private TransactionRepo transactionRepo;
 
+    @Autowired
+    private CardRepo cardRepo;
+
     // remember to change ids to int
     Transaction t1 = new Transaction(1, 50.00d, "16/07/2024", 1, 2);
     Transaction t2 = new Transaction(2, 50.00d, "15/07/2024", 1, 2);
     Transaction t3 = new Transaction(3, 50.00d, "14/07/2024", 1, 2);
 
     //ArrayList<Transaction> pastTransactions = new ArrayList<Transaction>();
-    /* Card c1 = new Card("Divine Wodi", "1234567890987654", "11/26", "123");
-    Card c2 = new Card("Mya Kelly", "0987654321234567", "04/26", "456"); */
+    Card c1 = new Card("Divine Wodi", "1234567890987654", "11/26", "123", 1);
+    Card c2 = new Card("Mya Kelly", "0987654321234567", "04/26", "456", 2);
     
     
     @Bean
@@ -36,6 +39,9 @@ public class CustomerConfig {
             transactionRepo.save(t1);
             transactionRepo.save(t2);
             transactionRepo.save(t3);
+            cardRepo.save(c1);
+            cardRepo.save(c2);
+
         };
     }
     
