@@ -1,17 +1,27 @@
 package com.example.demo;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+
+
+@Entity
 public class Transaction {
-    private String transactionID;
+    
+    @Id
+    private int transactionID;
     
     private double amount;
 
     private String date;
 
-    private String customerID;
+    
+    private int customerID;
 
-    private String thirdPartyID;
+    private int thirdPartyID;
 
-    public Transaction(String transactionID, double amount, String date, String customerID, String thirdPartyID){
+    public Transaction(){}
+
+    public Transaction(int transactionID, double amount, String date, int customerID, int thirdPartyID){
         this.transactionID = transactionID;
         this.amount = amount;
         this.date = date;
@@ -19,13 +29,13 @@ public class Transaction {
         this.thirdPartyID = thirdPartyID;
     }
 
-    public String getID(){ return this.transactionID; }
+    public int getID(){ return this.transactionID; }
     public double getAmount(){ return this.amount; }
     public String getDate(){ return this.date; }
-    public String getRecipient(){ return this.customerID; }
-    public String getThirdPartyID(){ return this.thirdPartyID; }
+    public int getRecipient(){ return this.customerID; }
+    public int getThirdPartyID(){ return this.thirdPartyID; }
 
-    public void setID(String id){
+    public void setID(int id){
         this.transactionID = id;
     }
     public void setAmount(double amount){
@@ -34,10 +44,10 @@ public class Transaction {
     public void setDate(String date){
         this.date = date;
     }
-    public void setRecipient(String customerID){
+    public void setRecipient(int customerID){
         this.customerID = customerID;
     }
-    public void setThirdParty(String thirdPartyID){
+    public void setThirdParty(int thirdPartyID){
         this.thirdPartyID = thirdPartyID;
     }
 }
