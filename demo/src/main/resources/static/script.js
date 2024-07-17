@@ -75,6 +75,11 @@ function insert_account_info(cust_id) {
   })
 }
 
+function fetch_card(cust_id){
+  fetch('http://localhost:8084/API'+String(cust_id)+"/cards")
+  .then(response => response.json())
+  .then(json => update(json['cardNumber'],cardone));
+}
 
 
 /*
@@ -86,7 +91,7 @@ function formatRows(json) {
   var result = "";
   for (i = 0; i < json.length; i++) {
     result += `<tr>
-      <th>${json[i]['recipient']}</th>
+      <th>${json[i]['thirdPartyName']}</th>
       <td>${json[i]['amount']}</td>
       <td>${json[i]['date']}</td>
     </tr>

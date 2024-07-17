@@ -17,23 +17,24 @@ public class Transaction {
     
     private int customerID;
 
-    private int thirdPartyID;
+    private String thirdPartyName;
+
 
     public Transaction(){}
 
-    public Transaction(int transactionID, double amount, String date, int customerID, int thirdPartyID){
+    public Transaction(int transactionID, double amount, String date, int customerID, String thirdPartyName){
         this.transactionID = transactionID;
         this.amount = amount;
         this.date = date;
         this.customerID = customerID;
-        this.thirdPartyID = thirdPartyID;
+        this.thirdPartyName = thirdPartyName;
     }
 
     public int getID(){ return this.transactionID; }
     public double getAmount(){ return this.amount; }
     public String getDate(){ return this.date; }
     public int getRecipient(){ return this.customerID; }
-    public int getThirdPartyID(){ return this.thirdPartyID; }
+    public String getThirdPartyName(){ return this.thirdPartyName; }
 
     public void setID(int id){
         this.transactionID = id;
@@ -47,7 +48,7 @@ public class Transaction {
     public void setRecipient(int customerID){
         this.customerID = customerID;
     }
-    public void setThirdParty(int thirdPartyID){
-        this.thirdPartyID = thirdPartyID;
+    public void setThirdParty(String thirdPartyName){
+        this.thirdPartyName = thirdPartyName;
     }
 }
