@@ -36,7 +36,7 @@ public class CustomerController {
         return trRepo.findByCustomerID(id);
     }
 
-    @GetMapping("/{id}/card")
+    @GetMapping("/{id}/cards")
     public List<Card> getCustomerCard(@PathVariable int id){
         return caRepo.findByCustid(id);
     }
