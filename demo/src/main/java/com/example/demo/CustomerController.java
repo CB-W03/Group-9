@@ -24,15 +24,15 @@ public class CustomerController {
     public List<Customer> getCustomerList(){
         return repo.findAll();
     }
-    //comment so i can commit and push
+    /*//comment so i can commit and push
     @GetMapping("/{id}/transactions")
     public List<Transaction> getCustomerTransactions(@PathVariable int id){
         return repo.findById(id).get().getTransactions();
-    }
+    }*/
 
-    @GetMapping("/{id}/card")
+    /*@GetMapping("/{id}/card")
     public Card getCustomerCard(@PathVariable int id){
         return repo.findById(id).get().getCard();
-    }
+    }*/
 
 }

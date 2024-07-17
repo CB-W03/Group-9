@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <script src="../static/script.js"></script>
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+</head>
+
+
+
+<h1 class="title has-text-centered">Welcome To Your Account</h1>
+
+<div class="columns">
+    <div class="column">
+        <div class="box">
+            <h6 class="title is-6 has-text-centered">Current Account:</h6>
+            <p><strong>Account Name:</strong> <span class="acctname"></span></p>
+            <p><strong>Balance: </strong> <span class="acctbal"></span></p>
+
+            <div class="columns is-centered" style="margin-top: 10px;"  >
+                <ul>
+                    <li>
+                        <a>
+                            <button class="js-modal-trigger button is-info" type="submit" data-target="modal-js-details">
+                                Account
+                                Details
+                            </button>
+                        </a>
+                        <a>
+                            <button class="js-modal-trigger button is-info" type="submit" data-target="modal-js-transactions">
+                                Transactions
+                            </button>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="column">
+        <div class="box">
+            <h6 class="title is-6 has-text-centered">Debit & Credit Cards:</h6s>
+                <h5> </h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-32x32">
+                                        <img src="https://bulma.io/assets/images/placeholders/128x128.png" />
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>MasterCard</strong> <small class="tag is-success"> Activated</small>
+                                            <br />
+                                            1235 1234 1234 1234
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </article>
+                        </tr>
+                        <tr>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-32x32">
+                                        <img src="https://bulma.io/assets/images/placeholders/128x128.png" />
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>VISA</strong> <small class="tag is-danger"> Disabled</small>
+                                            <br />
+                                            1235 1234 1234 1234
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </article>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="columns is-centered">
+                    <a href="./manageCards.html">
+                        <button class="button is-info"> Manage Cards </button>
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href="https://online.citi.com/US/ag/helptopic" >
+                <button class="button is-warning" >Help</button>
+            </a>
+            <a onclick="alert('Sign-out successful')" href="https://www.google.com/">
+                <button class="button is-danger"> Sign out</button>
+            </a>
+        </li>
+
+    </ul>
+
+
+</nav>
+
+
+<body>
+    <div id="modal-js-transactions" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th><abbr title="Reciever">Reciever</abbr></th>
+                            <th><abbr title="Amount">Amount</abbr></th>
+                            <th><abbr title="Date"> Date</abbr></th>
+                        </tr>
+                    </thead>
+                    <tbody class="transactiontable">
+ 
+                    </tbody>
+                </table>
+                <div class="has-text-centered">
+                    <button class="button close-modal-button is-success">Okay</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <div id="modal-js-details" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <h5 class="title is-5 has-text-centered">Account Details:</h5>
+                <ul>
+                    <li><b>Account Name:</b> <span class="acctname"></span></li>
+                    <li><b> Account Number:</b> <span class="acctno"></span></li>
+                    <li><b>Sort Code:</b> <span class="sortcode"></span></li>
+                    <li><b>IBAN:</b> <span class="iban"></span></li>
+                </ul>
+                <div class="has-text-centered">
+                    <button class="button close-modal-button is-success">Okay</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <script src="../static/script.js"></script>
+
+</body>
+
+</html>

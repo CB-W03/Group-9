@@ -27,12 +27,14 @@ public class Customer {
 
     private double balance;
 
-    private List<Transaction> transactions;
+    //private List<Transaction> transactions;
 
-    private Card card;
+    //private Card card;
+
+    public Customer(){}
 
     public Customer(int custID, String custName, boolean accountBlocked, String acctType, String sortCode,
-                    String acctNum, String iban, String bic, double balance, List<Transaction> customerTransactions, Card card) {
+                    String acctNum, String iban, String bic, double balance) {
         this.custID = custID;
         this.custName = custName;
         this.accountBlocked=accountBlocked;
@@ -42,8 +44,8 @@ public class Customer {
         this.iban=iban;
         this.bic=bic;
         this.balance=balance;
-        this.transactions = customerTransactions;
-        this.card = card;
+        //this.transactions = customerTransactions;
+        //this.card = card;
     }
 
     public String getAcctType() {return this.acctType;}
@@ -51,8 +53,8 @@ public class Customer {
     public String getAcctNum() {return this.acctNum;}
     public String getIban() {return this.iban;}
     public String getBic() {return this.bic;}
-    public List<Transaction> getTransactions(){ return this.transactions; }
-    public Card getCard(){ return this.card; }
+    //public List<Transaction> getTransactions(){ return this.transactions; }
+    //public Card getCard(){ return this.card; }
     public int getCustID() {
         return this.custID;
     }
