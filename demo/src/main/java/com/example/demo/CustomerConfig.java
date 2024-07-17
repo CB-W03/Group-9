@@ -18,9 +18,9 @@ public class CustomerConfig {
     @Autowired
     private CardRepo cardRepo;
 
-    Transaction t1 = new Transaction(1, 50.00d, "16/07/2024", 1, 2);
-    Transaction t2 = new Transaction(2, 50.00d, "15/07/2024", 1, 2);
-    Transaction t3 = new Transaction(3, 50.00d, "14/07/2024", 1, 2);
+    Transaction t1 = new Transaction(1, 50.00d, "16/07/2024", 1, "Mya");
+    Transaction t2 = new Transaction(2, 50.00d, "15/07/2024", 1, "Mya");
+    Transaction t3 = new Transaction(3, 50.00d, "14/07/2024", 1, "Mya");
   
     Card c1 = new Card("Divine Wodi", "1234567890987654", "11/26", "123", 1);
     Card c2 = new Card("Mya Kelly", "0987654321234567", "04/26", "456", 2);
