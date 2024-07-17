@@ -55,21 +55,21 @@ function update(insert_data, class_name) {
 Output the rows of a table of transactions at a location given by class_name.
 Input: an array of transactions, each with a recipient, date, and amount.
 */
-function output_transactions(class_name) {
-  fetch('https://api.jsonbin.io/v3/qs/6694db6bacd3cb34a8665b7f')
+function output_transactions(cust_id, class_name) {
+  fetch('http://localhost:8084/API/'+String(cust_id)+"/transactions")
   .then(response => response.json())
-  .then(json => update(formatRows(json['record']), class_name));
+  .then(json => update(formatRows(json), class_name));
 }
 
 /* Insert account information.
 */
 function insert_account_info(cust_id) {
-  fetch('http://localhost:8084/'+String(cust_id))
+  fetch('http://localhost:8084/API/'+String(cust_id))
   .then(response => response.json())
   .then(json => {
-    update(json['acct_type'], "acctname");
-    update(json['acct_num'], "acctno");
-    update(json['sort_code'],"sortcode");
+    update(json['custName'], "acctname");
+    update(json['acctNum'], "acctno");
+    update(json['sortCode'],"sortcode");
     update(json['iban'],"iban");
     update(json['balance'], "acctbal");
   })
@@ -92,7 +92,9 @@ function formatRows(json) {
     </tr>
     `
   }
+  console.log(result);
   return result;
 }
 
-output_transactions("transactiontable");
+output_transactions(1, "transactiontable");
+insert_account_info(1);
